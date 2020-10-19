@@ -77,7 +77,7 @@ class SmartCollectionService extends AbstractService
     public function update(SmartCollection &$smartCollection)
     {
         $data = $smartCollection->exportData();
-        $endpoint = 'smart_collections/'.$smartCollection->getId().'.json';
+        $endpoint = 'smart_collections/'.$smartCollection->id.'.json';
         $response = $this->request(
             $endpoint, 'PUT', array(
             'smart_collection' => $data
@@ -95,7 +95,7 @@ class SmartCollectionService extends AbstractService
      */
     public function delete(SmartCollection $smartCollection)
     {
-        $request = $this->createRequest('/smart_collections/'.$smartCollection->getId().'.json', static::REQUEST_METHOD_DELETE);
+        $request = $this->createRequest('/smart_collections/'.$smartCollection->id.'.json', static::REQUEST_METHOD_DELETE);
         $this->send($request);
     }
 

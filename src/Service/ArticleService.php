@@ -106,7 +106,7 @@ class ArticleService extends AbstractService
      */
     public function delete($blogId, Article &$article)
     {
-        $articleId = $article->getId();
+        $articleId = $article->id;
         $endpoint = 'blogs/'.$blogId.'/articles/'.$articleId.'.json';
         $this->request($endpoint, 'DELETE');
     }

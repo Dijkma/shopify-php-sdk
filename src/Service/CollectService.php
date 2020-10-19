@@ -81,7 +81,7 @@ class CollectService extends AbstractService
      */
     public function delete(Collect &$collect)
     {
-        $endpoint = 'collects/'.$collect->getId().'.json';
+        $endpoint = 'collects/'.$collect->id.'.json';
         $this->request($endpoint, 'DELETE');
         return;
     }

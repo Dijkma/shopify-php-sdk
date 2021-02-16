@@ -15,7 +15,7 @@ class MetafieldService extends AbstractService
      * @param string $ownerId
      * @return Metafield[]
      */
-    public function all(array $params = array(), $ownerResource = '', $ownerId = '')
+    public function all(array $params = [], string $ownerResource = '', string $ownerId = '')
     {
         if ($ownerResource && $ownerId) {
             $endpoint = $ownerResource . '/' . $ownerId . '/metafields.json';
@@ -46,16 +46,18 @@ class MetafieldService extends AbstractService
      * @param  array   $fields
      * @return Metafield
      */
-    public function get($metafieldId, array $fields = array())
+    public function get(int $metafieldId, array $fields = [])
     {
-        $params = array();
+        $params = [];
         if (!empty($fields)) {
             $params['fields'] = $fields;
         }
         $endpoint = 'metafields/'.$metafieldId.'.json';
         $response = $this->request($endpoint, 'GET', $params);
+
         return $this->createObject(Metafield::class, $response['metafield']);
     }
+
     /**
      * Create a new metafield for a resource
      *

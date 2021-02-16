@@ -13,11 +13,11 @@ class CollectService extends AbstractService
      * @param  array $params
      * @return Collect[]
      */
-    public function all(array $params = array())
+    public function all(array $params = [])
     {
         $endpoint = 'collects.json';
-        $data = $this->request($endpoint, 'GET', $params);
-        return $this->createCollection(Collect::class, $data['collects']);
+        $response = $this->request($endpoint, 'GET', $params);
+        return $this->createCollection(Collect::class, $response['collects']);
     }
 
     /**
